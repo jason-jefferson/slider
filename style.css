@@ -1,17 +1,31 @@
 body{
- background: #F7F7F7;
+ background: #F6F6F6;
 }
-
+.slider {
+  height: 900px;
+  width: 976px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
 .card-container {
   width: 100%;
-  margin: 26px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  /*position: absolute;*/
+  left: 0;
+  transition: all 1s ease;
 }
 .card{
-  width: 308px;
+  min-width: 308px;
   //border: solid grey 1px;
   box-shadow: 0 0 0px 1px #ececec;
   background: #fff;
   line-height:19px;
+  display: inline-block;
+  margin-right: 26px;
 }
 
 .card-image {
@@ -55,4 +69,18 @@ a{
   font-family: Arial;
   font-weight: bold;
   text-decoration: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  position:relative;
+}
+
+.buttons span{
+  font-size: 16px;
+  color: #2da936;
+  font-family: Arial;
+  font-weight: bold;
+  padding: 5px;
 }
