@@ -1,0 +1,58 @@
+body{
+ background: #F7F7F7; 
+}
+
+.card-container {
+  width: 100%;
+  margin: 26px;
+}
+.card{
+  width: 308px;
+  //border: solid grey 1px;
+  box-shadow: 0 0 0px 1px #ececec;
+  background: #fff;
+  line-height:19px;
+}
+
+.card-image {
+    height: 133px;
+    background-image: url(http://via.placeholder.com/300x150);
+    background-position: center;
+}
+
+.card-body .wrapper {
+  padding: 19px;
+}
+
+h3 {
+  font-size: 23px;
+  color: #3a3a3a;
+  font-family: Arial;
+  font-weight: bold;
+  margin: 0;
+}
+p.subheader {
+  font-size: 12px;
+  color: #adadad;
+  font-family: Arial;
+  font-weight: bold;
+  text-transform:uppercase;
+  margin-top: 0;
+  margin-bottom: 19px;
+}
+p {
+  font-size: 12px;
+  color: #3a3a3a;
+  font-family: Arial;
+  line-height: 1.583;
+  margin-top: 0;
+  margin-bottom: 19px;
+}
+
+a{
+  font-size: 16px;
+  color: #2da936;
+  font-family: Arial;
+  font-weight: bold;
+  text-decoration: none;
+}
