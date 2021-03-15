@@ -2,7 +2,7 @@ body{
  background: #F6F6F6;
 }
 .slider {
-  height: 900px;
+  height: 400px;
   width: 976px;
   position: relative;
   overflow: hidden;
