@@ -1,6 +1,6 @@
 const createCards = (data) => {
   let slideCount = document.querySelectorAll('.slider');
-  for (let i = 0; i < nodes; i++) {
+  for (let i = 0; i < slideCount; i++) {
     let node = slideCount[i];
     let slideCount = node.dataset.slides;
     const cardData = data['cards'];
