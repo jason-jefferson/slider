@@ -1,25 +1,28 @@
 const createCards = (data) => {
-  var node = document.getElementById('slider');
-  let slideCount = node.dataset.slides;
-  const cardData = data['cards'];
-  let cards = '';
+  var nodes = document.querySelectorAll('slider');
+  for (i = 0; i < nodes; i++) {
+    let node = nodes[0];
+    let slideCount = node.dataset.slides;
+    const cardData = data['cards'];
+    let cards = '';
 
-  for (i = 0; i < slideCount; i++) {
-    let card =
-        '<div class='+'"'+'card'+'"'+ 'data-target='+'"'+'card'+'"'+'>'+
-        '<div class='+'"'+'card-image'+'"'+' style='+'"background-image: url('+cardData[i].image_url+')"'+'></div>'+
-        '<div class='+'"'+'card-body'+'"'+'>' +
-        '<div class='+'"'+'wrapper'+'"'+'>'+
-        '<h3>'+cardData[i].title+'</h3>'+
-        '<p class='+'"'+'subheader'+'"'+'>'+cardData[i].subtitle+'</p>'+
-        '<p>'+cardData[i].text+'</p>'+
-        '<a href='+'"'+'https://gohenry.com/uk'+'"'+ 'target='+'"'+'_blank'+'"'+'>Learn More</a>'+
-        '</div>'+
-        '</div>'+
-        '</div>';
-    cards = cards + card;
-  };
-  node.innerHTML = cards;
+    for (i = 0; i < slideCount; i++) {
+      let card =
+          '<div class='+'"'+'card'+'"'+ 'data-target='+'"'+'card'+'"'+'>'+
+          '<div class='+'"'+'card-image'+'"'+' style='+'"background-image: url('+cardData[i].image_url+')"'+'></div>'+
+          '<div class='+'"'+'card-body'+'"'+'>' +
+          '<div class='+'"'+'wrapper'+'"'+'>'+
+          '<h3>'+cardData[i].title+'</h3>'+
+          '<p class='+'"'+'subheader'+'"'+'>'+cardData[i].subtitle+'</p>'+
+          '<p>'+cardData[i].text+'</p>'+
+          '<a href='+'"'+'https://gohenry.com/uk'+'"'+ 'target='+'"'+'_blank'+'"'+'>Learn More</a>'+
+          '</div>'+
+          '</div>'+
+          '</div>';
+      cards = cards + card;
+    };
+    node.innerHTML = cards;
+  }
 }
 
 const initSlider = () => {
