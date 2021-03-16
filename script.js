@@ -1,12 +1,12 @@
 const createCards = (data) => {
   let nodes = document.querySelectorAll('.slider');
   for (i = 0; i < nodes; i++) {
-    let node = nodes[0];
+    let node = nodes[i];
     let slideCount = node.dataset.slides;
     const cardData = data['cards'];
     let cards = '';
 
-    for (i = 0; i < slideCount; i++) {
+    for (j = 0; j < slideCount; i++) {
       let card =
           '<div class='+'"'+'card'+'"'+ 'data-target='+'"'+'card'+'"'+'>'+
           '<div class='+'"'+'card-image'+'"'+' style='+'"background-image: url('+cardData[i].image_url+')"'+'></div>'+
