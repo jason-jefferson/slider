@@ -23,33 +23,47 @@ const createCards = () => {
 
 createCards();
 
-const slider = document.querySelector("[data-target='card-slider']");
-const card = slider.querySelector("[data-target='card']");
-const leftButton = document.querySelector("[data-action='moveLeft']");
-const rightButton = document.querySelector("[data-action='moveRight']");
+const slider = document.querySelectorAll("[data-target='card-slider']");
+const card = slider[0].querySelector("[data-target='card']");
+const leftButton = document.querySelectorAll("[data-action='moveLeft']");
+const rightButton = document.querySelectorAll("[data-action='moveRight']");
 
 const sliderWidth = slider.offsetWidth;
 const cardWidth = card.offsetWidth;
 const cardStyle = card.currentStyle || window.getComputedStyle(card)
 const cardMarginRight = Number(cardStyle.marginRight.match(/\d+/g)[0]);
 
-const cardCount = slider.querySelectorAll("[data-target='card']").length;
+const cardCount = slider[0].querySelectorAll("[data-target='card']").length;
 
-let offset = 0;
+let offset = [];
+let numOfSliders = document.querySelectorAll('.slider').length;
+console.log(numOfSliders);
+for (let i = 0; i < numOfSliders; i++) {
+    offset[i] = 0;
+}
+
 const maxX = -((cardCount / 3) * sliderWidth +
                (cardMarginRight * (cardCount / 3)) -
                sliderWidth - cardMarginRight);
 
-leftButton.addEventListener("click", function() {
-  if (offset !== 0) {
-    offset += cardWidth + cardMarginRight;
-    slider.style.transform = `translateX(${offset}px)`;
+leftButton.forEach(function(el){
+  el.addEventListener("click", function() {
+    let sliderNum = el.closest(".slider").dataset.slider;
+    if (offset[sliderNum] !== 0) {
+      offset[sliderNum] += cardWidth + cardMarginRight;
+      slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
     }
-})
+    console.log( 'slide1: ' + offset['slider-0']);
+    console.log( offset['slider-1']);
+  });
+});
 
-rightButton.addEventListener("click", function() {
-  if (offset !== maxX) {
-    offset -= cardWidth + cardMarginRight;
-    slider.style.transform = `translateX(${offset}px)`;
-  }
-})
+rightButton.forEach(function(el){
+  el.addEventListener("click", function() {
+    let sliderNum = el.closest(".slider").dataset.slider;
+    if (offset[sliderNum] !== maxX) {
+      offset[sliderNum] -= cardWidth + cardMarginRight;
+      slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
+    }
+  });
+});
