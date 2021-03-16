@@ -1,37 +1,39 @@
+const createCards = (data) => {
+  var node = document.getElementById('slider');
+  let slideCount = node.dataset.slides;
+  const cardData = data['cards'];
+  let cards = '';
+
+  for (i = 0; i < slideCount; i++) {
+    let card =
+        '<div class='+'"'+'card'+'"'+ 'data-target='+'"'+'card'+'"'+'>'+
+        '<div class='+'"'+'card-image'+'"'+'></div>'+
+        '<div class='+'"'+'card-body'+'"'+'>' +
+        '<div class='+'"'+'wrapper'+'"'+'>'+
+        '<h3>'+cardData[i].title+'</h3>'+
+        '<p class='+'"'+'subheader'+'"'+'>'+cardData[i].subtitle+'</p>'+
+        '<p>'+cardData[i].text+'</p>'+
+        '<a href='+'"'+'https://gohenry.com/uk'+'"'+ 'target='+'"'+'_blank'+'"'+'>Learn More</a>'+
+        '</div>'+
+        '</div>'+
+        '</div>';
+    cards = cards + card;
+  };
+  node.innerHTML = cards;
+}
+
 let requestURL = './db.json'
 let request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
 request.onload = function() {
-  const superHeroes = request.response;
-  console.log(superHeroes);
+  const dbCards = request.response;
+  console.log(dbCards);
+  createCards(dbCards);
 }
 
-const createCards = () => {
-  var node = document.getElementById('slider');
-  let slideCount = node.dataset.slides;
-  let cards = '';
-  let card =
-      '<div class='+'"'+'card'+'"'+ 'data-target='+'"'+'card'+'"'+'>'+
-      '<div class='+'"'+'card-image'+'"'+'></div>'+
-      '<div class='+'"'+'card-body'+'"'+'>' +
-      '<div class='+'"'+'wrapper'+'"'+'>'+
-      '<h3>We are Humans</h3>'+
-      '<p class='+'"'+'subheader'+'"'+'>What will you find here</p>'+
-      '<p>LOERM IPSUM.</p>'+
-      '<a href='+'"'+'https://gohenry.com/uk'+'"'+ 'target='+'"'+'_blank'+'"'+'>Learn More</a>'+
-      '</div>'+
-      '</div>'+
-      '</div>';
 
-  for (i = 0; i < slideCount; i++) {
-    cards = cards + card;
-  };
-  node.innerHTML = cards;
-}
-
-createCards();
 
 const slider = document.querySelectorAll("[data-target='card-slider']");
 const card = slider[0].querySelector("[data-target='card']");
