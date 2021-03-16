@@ -2,11 +2,11 @@ body{
  background: #F6F6F6;
 }
 .slider {
-  height: 400px;
   width: 976px;
   position: relative;
   overflow: hidden;
   margin: 0 auto;
+  margin: 26px auto;
 }
 .card-container {
   width: 100%;
@@ -16,6 +16,7 @@ body{
   display: flex;
   /*position: absolute;*/
   left: 0;
+  padding-bottom: 26px;
   transition: all 1s ease;
 }
 .card{
@@ -82,5 +83,6 @@ a{
   color: #2da936;
   font-family: Arial;
   font-weight: bold;
-  padding: 8px;
+  padding: 0 8px;
+  line-height: 0.5;
 }
