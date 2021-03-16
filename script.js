@@ -45,7 +45,7 @@ const initSlider = () => {
   const maxX = -((cardCount / 3) * sliderWidth +
                  (cardMarginRight * (cardCount / 3)) -
                  sliderWidth - cardMarginRight);
-}
+
 
 leftButton.forEach(function(el){
   el.addEventListener("click", function() {
@@ -59,6 +59,7 @@ leftButton.forEach(function(el){
   });
 });
 
+
 rightButton.forEach(function(el){
   el.addEventListener("click", function() {
     let sliderNum = el.closest(".slider").dataset.slider;
@@ -68,6 +69,8 @@ rightButton.forEach(function(el){
     }
   });
 });
+
+}
 
 let requestURL = './db.json'
 let request = new XMLHttpRequest();
