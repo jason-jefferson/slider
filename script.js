@@ -6,7 +6,7 @@ const createCards = (data) => {
     const cardData = data['cards'];
     let cards = '';
 
-    for (j = 0; j < slideCount; i++) {
+    for (j = 0; j < slideCount; j++) {
       let card =
           '<div class='+'"'+'card'+'"'+ 'data-target='+'"'+'card'+'"'+'>'+
           '<div class='+'"'+'card-image'+'"'+' style='+'"background-image: url('+cardData[i].image_url+')"'+'></div>'+
