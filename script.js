@@ -1,12 +1,12 @@
 const createCards = (data) => {
-  let nodes = document.querySelectorAll('.slider');
-  for (i = 0; i < nodes; i++) {
-    let node = nodes[i];
+  let slideCount = document.querySelectorAll('.slider');
+  for (let i = 0; i < nodes; i++) {
+    let node = slideCount[i];
     let slideCount = node.dataset.slides;
     const cardData = data['cards'];
     let cards = '';
 
-    for (j = 0; j < slideCount; j++) {
+    for (let j = 0; j < slideCount; j++) {
       let card =
           '<div class='+'"'+'card'+'"'+ 'data-target='+'"'+'card'+'"'+'>'+
           '<div class='+'"'+'card-image'+'"'+' style='+'"background-image: url('+cardData[j].image_url+')"'+'></div>'+
@@ -20,9 +20,9 @@ const createCards = (data) => {
           '</div>'+
           '</div>';
       cards = cards + card;
-    };
+    }
     node.innerHTML = cards;
-  };
+  }
 }
 
 const initSlider = () => {
