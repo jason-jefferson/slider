@@ -22,41 +22,30 @@ const createCards = (data) => {
   node.innerHTML = cards;
 }
 
-let requestURL = './db.json'
-let request = new XMLHttpRequest();
-request.open('GET', requestURL);
-request.responseType = 'json';
-request.send();
-request.onload = function() {
-  const dbCards = request.response;
-  console.log(dbCards);
-  createCards(dbCards);
+const initSlider = () => {
+  const slider = document.querySelectorAll("[data-target='card-slider']");
+  const card = slider[0].querySelector("[data-target='card']");
+  const leftButton = document.querySelectorAll("[data-action='moveLeft']");
+  const rightButton = document.querySelectorAll("[data-action='moveRight']");
+
+  const sliderWidth = slider.offsetWidth;
+  const cardWidth = card.offsetWidth;
+  const cardStyle = card.currentStyle || window.getComputedStyle(card)
+  const cardMarginRight = Number(cardStyle.marginRight.match(/\d+/g)[0]);
+
+  const cardCount = slider[0].querySelectorAll("[data-target='card']").length;
+
+  let offset = [];
+  let numOfSliders = document.querySelectorAll('.slider').length;
+  console.log(numOfSliders);
+  for (let i = 0; i < numOfSliders; i++) {
+      offset[i] = 0;
+  }
+
+  const maxX = -((cardCount / 3) * sliderWidth +
+                 (cardMarginRight * (cardCount / 3)) -
+                 sliderWidth - cardMarginRight);
 }
-
-
-
-const slider = document.querySelectorAll("[data-target='card-slider']");
-const card = slider[0].querySelector("[data-target='card']");
-const leftButton = document.querySelectorAll("[data-action='moveLeft']");
-const rightButton = document.querySelectorAll("[data-action='moveRight']");
-
-const sliderWidth = slider.offsetWidth;
-const cardWidth = card.offsetWidth;
-const cardStyle = card.currentStyle || window.getComputedStyle(card)
-const cardMarginRight = Number(cardStyle.marginRight.match(/\d+/g)[0]);
-
-const cardCount = slider[0].querySelectorAll("[data-target='card']").length;
-
-let offset = [];
-let numOfSliders = document.querySelectorAll('.slider').length;
-console.log(numOfSliders);
-for (let i = 0; i < numOfSliders; i++) {
-    offset[i] = 0;
-}
-
-const maxX = -((cardCount / 3) * sliderWidth +
-               (cardMarginRight * (cardCount / 3)) -
-               sliderWidth - cardMarginRight);
 
 leftButton.forEach(function(el){
   el.addEventListener("click", function() {
@@ -79,3 +68,15 @@ rightButton.forEach(function(el){
     }
   });
 });
+
+let requestURL = './db.json'
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+request.onload = function() {
+  const dbCards = request.response;
+  console.log(dbCards);
+  createCards(dbCards);
+  initSlider();
+}
