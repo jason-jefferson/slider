@@ -50,8 +50,17 @@ const initSlider = () => {
   }
 
   let limit = [];
+  let screenSize = $(window).width();
+  let cardsPerPage;
+  if (screenSize =< 500){
+    cardsPerPage = 1;
+  } else if (screenSize =< 750) {
+    cardsPerPage = 2;
+  } else {
+    cardsPerPage = 3;
+  }
   for (let i = 0; i < numOfSliders; i++) {
-    limit[i] = -((slider[i].querySelectorAll("[data-target='card']").length / 3)
+    limit[i] = -((slider[i].querySelectorAll("[data-target='card']").length / cardsPerPage)
                  * sliderWidth + (cardMarginRight * (slider[i].querySelectorAll("[data-target='card']").length / 3)) -
                  sliderWidth - cardMarginRight);
   }
