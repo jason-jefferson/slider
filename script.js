@@ -1,3 +1,13 @@
+let requestURL = './db.json'
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+request.onload = function() {
+  const superHeroes = request.response;
+  console.log(superHeroes);
+}
+
 const createCards = () => {
   var node = document.getElementById('slider');
   let slideCount = node.dataset.slides;
