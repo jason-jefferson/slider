@@ -9,12 +9,12 @@ const createCards = (data) => {
     for (j = 0; j < slideCount; j++) {
       let card =
           '<div class='+'"'+'card'+'"'+ 'data-target='+'"'+'card'+'"'+'>'+
-          '<div class='+'"'+'card-image'+'"'+' style='+'"background-image: url('+cardData[i].image_url+')"'+'></div>'+
+          '<div class='+'"'+'card-image'+'"'+' style='+'"background-image: url('+cardData[j].image_url+')"'+'></div>'+
           '<div class='+'"'+'card-body'+'"'+'>' +
           '<div class='+'"'+'wrapper'+'"'+'>'+
-          '<h3>'+cardData[i].title+'</h3>'+
-          '<p class='+'"'+'subheader'+'"'+'>'+cardData[i].subtitle+'</p>'+
-          '<p>'+cardData[i].text+'</p>'+
+          '<h3>'+cardData[j].title+'</h3>'+
+          '<p class='+'"'+'subheader'+'"'+'>'+cardData[j].subtitle+'</p>'+
+          '<p>'+cardData[j].text+'</p>'+
           '<a href='+'"'+'https://gohenry.com/uk'+'"'+ 'target='+'"'+'_blank'+'"'+'>Learn More</a>'+
           '</div>'+
           '</div>'+
