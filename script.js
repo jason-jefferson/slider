@@ -73,7 +73,7 @@ leftButton.forEach(function(el){
 rightButton.forEach(function(el){
   el.addEventListener("click", function() {
     let sliderNum = el.closest(".slider").dataset.slider;
-    if (offset[sliderNum] !== limit[sliderNum]) {
+    if (offset[sliderNum] >= limit[sliderNum]) {
       offset[sliderNum] -= cardWidth + cardMarginRight;
       slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
     }
