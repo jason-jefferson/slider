@@ -54,7 +54,7 @@ const initSlider = () => {
   let cardsPerPage;
   if (screenSize <= 500){
     cardsPerPage = 1;
-  } else if (screenSize <= 750) {
+  } else if (screenSize <= 976) {
     cardsPerPage = 2;
   } else {
     cardsPerPage = 3;
@@ -82,7 +82,7 @@ leftButton.forEach(function(el){
 rightButton.forEach(function(el){
   el.addEventListener("click", function() {
     let sliderNum = el.closest(".slider").dataset.slider;
-    if (offset[sliderNum] >= limit[sliderNum]) {
+    if (offset[sliderNum] > limit[sliderNum]) {
       offset[sliderNum] -= cardWidth + cardMarginRight;
       slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
     }
