@@ -50,7 +50,7 @@ const initSlider = () => {
   }
 
   let limit = [];
-  let screenSize = $(window).width();
+  let screenSize = window.screen.width;
   let cardsPerPage;
   if (screenSize =< 500){
     cardsPerPage = 1;
