@@ -39,6 +39,16 @@ body{
   padding: 19px;
 }
 
+span.logo {
+    width: 38px;
+    display: inline-block;
+    background-image: url(./icon.png);
+}
+
+.title {
+    display: inline-block;
+}
+
 h3 {
   font-size: 23px;
   color: #3a3a3a;

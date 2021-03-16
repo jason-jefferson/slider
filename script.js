@@ -12,8 +12,13 @@ const createCards = (data) => {
           '<div class='+'"'+'card-image'+'"'+' style='+'"background-image: url('+cardData[j].image_url+')"'+'></div>'+
           '<div class='+'"'+'card-body'+'"'+'>' +
           '<div class='+'"'+'wrapper'+'"'+'>'+
+          '<div class="header-wrap">'+
+          '<span class="logo"></span>'+
+          '<div class="title">'+
           '<h3>'+cardData[j].title+'</h3>'+
           '<p class='+'"'+'subheader'+'"'+'>'+cardData[j].subtitle+'</p>'+
+          '</div>'+
+          '</div>'+
           '<p>'+cardData[j].text+'</p>'+
           '<a href='+'"'+'https://gohenry.com/uk'+'"'+ 'target='+'"'+'_blank'+'"'+'>Learn More</a>'+
           '</div>'+
