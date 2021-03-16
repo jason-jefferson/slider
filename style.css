@@ -72,6 +72,10 @@ a{
   text-decoration: none;
 }
 
+a:hover{
+  color: #1b4c1f;
+}
+
 .buttons {
   display: flex;
   justify-content: center;
@@ -85,4 +89,33 @@ a{
   font-weight: bold;
   padding: 0 8px;
   line-height: 0.7;
+  cursor: pointer;
+}
+
+.buttons span:hover{
+  color: #1b4c1f;
+}
+
+@media screen and (max-width: 976px) {
+   .slider {
+     width: 100%;
+   }
+}
+
+@media screen and (max-width: 976px) {
+   .card {
+     min-width: 33%;
+   }
+}
+
+@media screen and (max-width: 750px) {
+   .card {
+     min-width: 50%;
+   }
+}
+
+@media screen and (max-width: 500px) {
+   .card {
+     min-width: 100%;
+   }
 }
