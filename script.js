@@ -1,31 +1,38 @@
 const createCards = (data) => {
   let nodes = document.querySelectorAll('#slider');
+
+  //Generate sliders
   for (let i = 0; i < nodes.length; i++) {
     let node = nodes[i];
     let slideCount = node.dataset.slides;
     const cardData = data['cards'];
     let cards = '';
 
+    //Generate X cards filled in with data from json file
     for (let j = 0; j < slideCount; j++) {
       let card =
-          '<div class='+'"'+'card'+'"'+ 'data-target='+'"'+'card'+'"'+'>'+
-          '<div class='+'"'+'card-image'+'"'+' style='+'"background-image: url('+cardData[j].image_url+')"'+'></div>'+
-          '<div class='+'"'+'card-body'+'"'+'>' +
-          '<div class='+'"'+'wrapper'+'"'+'>'+
+          '<div class="card" data-target="card">'+
+          '<div class="card-image" style="background-image: url('+cardData[j].image_url+')"></div>'+
+          '<div class="card-body">' +
+          '<div class="wrapper">'+
           '<div class="header-wrap">'+
           '<span class="logo"></span>'+
           '<div class="title">'+
           '<h3>'+cardData[j].title+'</h3>'+
-          '<p class='+'"'+'subheader'+'"'+'>'+cardData[j].subtitle+'</p>'+
+          '<p class="subheader">'+cardData[j].subtitle+'</p>'+
           '</div>'+
           '</div>'+
           '<p>'+cardData[j].text+'</p>'+
-          '<a href='+'"'+'https://gohenry.com/uk'+'"'+ 'target='+'"'+'_blank'+'"'+'>Learn More</a>'+
+          '<a href="https://gohenry.com/uk" target="_blank">Learn More</a>'+
           '</div>'+
           '</div>'+
           '</div>';
+
+      //Add card to string of cards
       cards = cards + card;
     }
+
+    //Write cards to webpage
     node.innerHTML = cards;
   }
 }
@@ -49,8 +56,10 @@ const initSlider = () => {
       offset[i] = 0;
   }
 
+  //Scroll Limit for Sliders
   let limit = [];
   let screenSize = window.screen.width;
+  //Reduce Cards per page for smaller screens
   let cardsPerPage;
   if (screenSize <= 500){
     cardsPerPage = 1;
@@ -66,28 +75,27 @@ const initSlider = () => {
   }
 
 
-leftButton.forEach(function(el){
-  el.addEventListener("click", function() {
-    let sliderNum = el.closest(".slider").dataset.slider;
-    if (offset[sliderNum] !== 0) {
-      offset[sliderNum] += cardWidth + cardMarginRight;
-      slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
-    }
-    console.log( 'slide1: ' + offset['slider-0']);
-    console.log( offset['slider-1']);
+  //Event Listeners for Button Clicks
+  leftButton.forEach(function(el){
+    el.addEventListener("click", function() {
+      let sliderNum = el.closest(".slider").dataset.slider;
+      if (offset[sliderNum] !== 0) {
+        offset[sliderNum] += cardWidth + cardMarginRight;
+        slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
+      }
+      console.log( 'slide1: ' + offset['slider-0']);
+      console.log( offset['slider-1']);
+    });
   });
-});
-
-
-rightButton.forEach(function(el){
-  el.addEventListener("click", function() {
-    let sliderNum = el.closest(".slider").dataset.slider;
-    if (offset[sliderNum] > limit[sliderNum]) {
-      offset[sliderNum] -= cardWidth + cardMarginRight;
-      slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
-    }
+  rightButton.forEach(function(el){
+    el.addEventListener("click", function() {
+      let sliderNum = el.closest(".slider").dataset.slider;
+      if (offset[sliderNum] > limit[sliderNum]) {
+        offset[sliderNum] -= cardWidth + cardMarginRight;
+        slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
+      }
+    });
   });
-});
 
 }
 
