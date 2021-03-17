@@ -110,3 +110,6 @@ request.onload = function() {
   createCards(dbCards);
   initSlider();
 }
+
+//Reset Slider Values on window resize
+window.onresize = initSlider();
