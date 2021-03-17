@@ -40,8 +40,7 @@ const createCards = (data) => {
 const initSlider = () => {
   const slider = document.querySelectorAll("[data-target='card-slider']");
   const card = slider[0].querySelector("[data-target='card']");
-  const leftButton = document.querySelectorAll("[data-action='moveLeft']");
-  const rightButton = document.querySelectorAll("[data-action='moveRight']");
+
 
   const sliderWidth = slider[0].offsetWidth;
   const cardWidth = card.offsetWidth;
@@ -75,6 +74,9 @@ const initSlider = () => {
   }
 }
 
+
+const leftButton = document.querySelectorAll("[data-action='moveLeft']");
+const rightButton = document.querySelectorAll("[data-action='moveRight']");
 //Event Listeners for Button Clicks
 leftButton.forEach(function(el){
   el.addEventListener("click", function() {
