@@ -73,31 +73,29 @@ const initSlider = () => {
                  * sliderWidth + (cardMarginRight * (slider[i].querySelectorAll("[data-target='card']").length / 3)) -
                  sliderWidth - cardMarginRight);
   }
-
-
-  //Event Listeners for Button Clicks
-  leftButton.forEach(function(el){
-    el.addEventListener("click", function() {
-      let sliderNum = el.closest(".slider").dataset.slider;
-      if (offset[sliderNum] !== 0) {
-        offset[sliderNum] += cardWidth + cardMarginRight;
-        slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
-      }
-      console.log( 'slide1: ' + offset['slider-0']);
-      console.log( offset['slider-1']);
-    });
-  });
-  rightButton.forEach(function(el){
-    el.addEventListener("click", function() {
-      let sliderNum = el.closest(".slider").dataset.slider;
-      if (offset[sliderNum] > limit[sliderNum]) {
-        offset[sliderNum] -= cardWidth + cardMarginRight;
-        slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
-      }
-    });
-  });
-
 }
+
+//Event Listeners for Button Clicks
+leftButton.forEach(function(el){
+  el.addEventListener("click", function() {
+    let sliderNum = el.closest(".slider").dataset.slider;
+    if (offset[sliderNum] !== 0) {
+      offset[sliderNum] += cardWidth + cardMarginRight;
+      slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
+    }
+    console.log( 'slide1: ' + offset['slider-0']);
+    console.log( offset['slider-1']);
+  });
+});
+rightButton.forEach(function(el){
+  el.addEventListener("click", function() {
+    let sliderNum = el.closest(".slider").dataset.slider;
+    if (offset[sliderNum] > limit[sliderNum]) {
+      offset[sliderNum] -= cardWidth + cardMarginRight;
+      slider[sliderNum].style.transform = `translateX(${offset[sliderNum]}px)`;
+    }
+  });
+});
 
 let requestURL = './db.json'
 let request = new XMLHttpRequest();
