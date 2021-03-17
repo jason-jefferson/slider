@@ -112,4 +112,6 @@ request.onload = function() {
 }
 
 //Reset Slider Values on window resize
-window.onresize = initSlider();
+window.onresize = function(event) {
+  initSlider();
+};
